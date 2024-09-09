@@ -1,9 +1,10 @@
 # CRUD Livraria Microservico
  Um CRUD básico com tema de livraria, onde o gerenciamento de autores é realizado por um microserviço separado (autorservice). A aplicação de livraria (livraria) se comunica com o microserviço de autores via API REST para realizar operações de cadastro e gerenciamento de autores.
 
-
 Livraria: Responsável pelo CRUD de livros.
-Autorservice: Um microserviço dedicado ao CRUD de autores.
+
+Autorservice: Um microserviço dedicado aoCRUD de autores.
+
 Tecnologias Utilizadas:
 Java 17
 Spring Boot para facilitar o desenvolvimento e a configuração dos serviços.
