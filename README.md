@@ -20,6 +20,6 @@ A aplicação livraria se comunica com o microserviço autorservice via chamadas
 Cada serviço possui seu próprio repositório e configuração de banco de dados, permitindo escalabilidade e separação de responsabilidades.
 
 # Como Testar:
-para acessar o crud de autores: localhost:8080/cadastro-autor.html
-para acessar o crud de livros: localhost:8080/cadastro-livro.html
-dois front-end bem básicos que fiz só para testar os endpoints.
+para acessar o crud de autores: localhost:8080/cadastro-autor.html  
+para acessar o crud de livros: localhost:8080/cadastro-livro.html  
+dois front-end bem básicos que fiz só para testar os endpoints.  
