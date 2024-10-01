@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autorservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: autorservice
+  template:
+    metadata:
+      labels:
+        app: autorservice
+    spec:
+      containers:
+        - name: autorservice
+          image: luizeduardoardovino/autorservice:latest
+          ports:
+            - containerPort: 8081  # Porta que o AutorService expõe
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autorservice
+spec:
+  type: NodePort
+  selector:
+    app: autorservice
+  ports:
+    - protocol: TCP
+      port: 80  # Porta externa para acessar o serviço
+      targetPort: 8081  # Porta dentro do container
