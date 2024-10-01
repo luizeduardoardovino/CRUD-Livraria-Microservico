@@ -1,0 +1,44 @@
+name: CI Workflow for Livraria Microservices
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-     
+
+      # Build e testes para o Livraria Microservice
+      - name: Build Livraria service
+        run: |
+          cd livraria/livraria
+          mvn clean install
+
+      # Build e testes para o AutorService Microservice
+      - name: Build AutorService
+        run: |
+          cd autorservice/autorservice
+          mvn clean install
